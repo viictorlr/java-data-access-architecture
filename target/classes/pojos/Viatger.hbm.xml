@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 20 de febr. 2025, 16:13:19 by Hibernate Tools 6.1.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pojos.Viatger" optimistic-lock="none" table="viatger">
+        <id name="dni" type="string">
+            <column length="9" name="DNI"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="pojos.Club" fetch="select" name="club">
+            <column name="club" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="pojos.Ruta" fetch="select" name="ruta">
+            <column name="ruta" not-null="true"/>
+        </many-to-one>
+        <property name="cognoms" type="string">
+            <column length="30" name="cognoms" not-null="true"/>
+        </property>
+        <property name="nom" type="string">
+            <column length="15" name="nom" not-null="true"/>
+        </property>
+        <property name="tlf" type="string">
+            <column length="9" name="tlf"/>
+        </property>
+    </class>
+</hibernate-mapping>

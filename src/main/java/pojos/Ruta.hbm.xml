@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 20 de febr. 2025, 16:13:19 by Hibernate Tools 6.1.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pojos.Ruta" optimistic-lock="none" table="ruta">
+        <id name="codiRuta" type="java.lang.Integer">
+            <column name="codiRuta"/>
+            <generator class="identity"/>
+        </id>
+        <property name="nom" type="string">
+            <column length="20" name="nom" not-null="true"/>
+        </property>
+        <property name="origen" type="string">
+            <column length="20" name="origen"/>
+        </property>
+        <property name="desti" type="string">
+            <column length="20" name="desti"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="viatgers" cascade="all,delete-orphan" table="viatger">
+            <key>
+                <column name="ruta" not-null="true"/>
+            </key>
+            <one-to-many class="pojos.Viatger"/>
+        </set>
+    </class>
+</hibernate-mapping>

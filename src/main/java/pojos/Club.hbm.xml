@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 20 de febr. 2025, 16:13:19 by Hibernate Tools 6.1.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pojos.Club" optimistic-lock="none" table="club">
+        <id name="codiClub" type="int">
+            <column name="codiClub"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="nomClub" type="string">
+            <column length="50" name="nomClub" not-null="true"/>
+        </property>
+        <property name="comentari" type="string">
+            <column length="100" name="comentari"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="viatgers" table="viatger">
+            <key>
+                <column name="club" not-null="true"/>
+            </key>
+            <one-to-many class="pojos.Viatger"/>
+        </set>
+    </class>
+</hibernate-mapping>
